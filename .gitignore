@@ -105,3 +105,6 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Embedded package sources fetched via Packages/manifest.json (re-resolved on open, no need to commit)
+/Packages/com.unity.inputsystem/
