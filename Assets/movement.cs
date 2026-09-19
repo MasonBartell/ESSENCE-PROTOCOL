@@ -57,7 +57,7 @@ public class movement : MonoBehaviour
 
         // TODO 3: add the mouse's y delta * mouseSensitivity to `pitch`,
         // then clamp `pitch` between -80 and 80 degrees so you can't flip the camera upside down
-        pitch += mousePos.y * mouseSensitivity;
+        pitch -= mousePos.y * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, -80, 80);
 
         // TODO 4: apply `pitch` as the camera's local rotation around the X axis
@@ -66,8 +66,8 @@ public class movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Step 1: build the direction from input
-    Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput);
+        // Step 1: build the direction from input, relative to the player's facing
+    Vector3 moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
 
     // Step 2: grab the Rigidbody's current y velocity so we don't overwrite gravity/jumping
     float currentYVelocity = rb.linearVelocity.y;
